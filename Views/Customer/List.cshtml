@@ -1,0 +1,126 @@
+﻿@model IEnumerable<FinalProject.Models.TCustomer>
+
+@{
+    ViewData["Title"] = "List";
+}
+
+<h1>會員資料一覽表</h1>
+@using (Html.BeginForm())
+{
+    <p>
+        關鍵字
+        @Html.TextBox("txtKeyword")
+        <input type="submit" value="查詢" />
+    </p>
+}
+
+<p>
+    <a asp-action="Create">新增會員</a>
+</p>
+<table class="table" id="datatablesSimple">
+    <thead>
+        <tr>
+            <th>
+                序
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.FLastName)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.FFirstName)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.FGender)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.FTel)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.FMobile)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.FEmail)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.FPassword)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.FBirthDate)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.FPoint)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.FBlackList)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.FRemark)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.FCreationDate)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.FLastUpdateDate)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        @{
+            int count = 0;
+            foreach (var item in Model) {
+                count++;
+                <tr>
+            <td>
+                @count
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.FLastName)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.FFirstName)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.FGender)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.FTel)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.FMobile)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.FEmail)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.FPassword)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.FBirthDate)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.FPoint)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.FBlackList)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.FRemark)
+            </td>
+            
+            <td>
+                @Html.DisplayFor(modelItem => item.FCreationDate)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.FLastUpdateDate)
+            </td>
+            <td>
+                        @Html.ActionLink("修改", "Edit", new {  id=item.FId } , new {@class="btn btn-success"})  
+                @Html.ActionLink("刪除", "Delete", "Customer", new { id = item.FId },
+                new { onclick = "return confirm('確定要刪除嗎?')" , @class="btn btn-danger"})
+                        @Html.ActionLink("詳細", "Detail", new {  id=item.FId } , new {@class="btn btn-success"})
+            </td>
+        </tr>
+}}
+    </tbody>
+</table>

@@ -1,0 +1,98 @@
+﻿@model FinalProject.Models.TCustomer
+
+@{
+    ViewData["Title"] = "Edit";
+}
+
+<h1>修改顧客資料</h1>
+
+<h4>TCustomer</h4>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form asp-action="Edit">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <div class="form-group" style="display:none">
+                <label asp-for="FId" class="control-label"></label>
+                <input asp-for="FId" class="form-control" />
+                <span asp-validation-for="FId" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="FLastName" class="control-label"></label>
+                <input asp-for="FLastName" class="form-control" />
+                <span asp-validation-for="FLastName" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="FFirstName" class="control-label"></label>
+                <input asp-for="FFirstName" class="form-control" />
+                <span asp-validation-for="FFirstName" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="FGender" class="control-label"></label>
+                <input asp-for="FGender" class="form-control" />
+                <span asp-validation-for="FGender" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="FTel" class="control-label"></label>
+                <input asp-for="FTel" class="form-control" />
+                <span asp-validation-for="FTel" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="FMobile" class="control-label"></label>
+                <input asp-for="FMobile" class="form-control" />
+                <span asp-validation-for="FMobile" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="FEmail" class="control-label"></label>
+                <input asp-for="FEmail" class="form-control" />
+                <span asp-validation-for="FEmail" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="FPassword" class="control-label"></label>
+                <input asp-for="FPassword" class="form-control" />
+                <span asp-validation-for="FPassword" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="FBirthDate" class="control-label"></label>
+                <input asp-for="FBirthDate" class="form-control" />
+                <span asp-validation-for="FBirthDate" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="FPoint" class="control-label"></label>
+                <input asp-for="FPoint" class="form-control" />
+                <span asp-validation-for="FPoint" class="text-danger"></span>
+            </div>
+            <div class="form-group form-check">
+                <label class="form-check-label">
+                    <input class="form-check-input" asp-for="FBlackList" /> @Html.DisplayNameFor(model => model.FBlackList)
+                </label>
+            </div>
+            <div class="form-group">
+                <label asp-for="FRemark" class="control-label"></label>
+                <input asp-for="FRemark" class="form-control" />
+                <span asp-validation-for="FRemark" class="text-danger"></span>
+            </div>
+            <div class="form-group" style="display:none">
+                <label asp-for="FCreationDate" class="control-label"></label>
+                <input asp-for="FCreationDate" class="form-control" />
+                <span asp-validation-for="FCreationDate" class="text-danger"></span>
+            </div>
+            <div class="form-group" style="display:none">
+                <label asp-for="FLastUpdateDate" class="control-label"></label>
+                <input asp-for="FLastUpdateDate" class="form-control" />
+                <span asp-validation-for="FLastUpdateDate" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="儲存" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    <a asp-action="List">取消</a>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}
